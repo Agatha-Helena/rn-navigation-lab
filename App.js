@@ -5,8 +5,9 @@ import AppNavigator from "./src/navigation";
 export default function App() {
   return (
     <SafeAreaProvider>
-      {/* Chamar o NavigationContainer */}
-      {/* Chamar o Componente do navigation/index.js */}
+      <NavigationContainer>
+        <AppNavigator/>
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }

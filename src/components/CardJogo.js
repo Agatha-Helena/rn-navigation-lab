@@ -1,13 +1,13 @@
 import { Text, View } from "react-native";
 
 // Passe os parametros de forma correta e realize a estilização do componente
-export default function CardJogo() {
+export default function CardJogo({titulo, genero, plataforma, nota}) {
   return (
     <View>
-      <Text>Titulo</Text>
-      <Text>Genero</Text>
-      <Text>Plataforma</Text>
-      <Text>Nota</Text>
+      <Text>Titulo: {titulo}</Text>
+      <Text>Genero: {genero}</Text>
+      <Text>Plataforma: {plataforma}</Text>
+      <Text>Nota: {nota}</Text>
     </View>
   );
 }

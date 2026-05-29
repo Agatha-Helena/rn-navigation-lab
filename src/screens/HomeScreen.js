@@ -1,6 +1,6 @@
 // TODO: estilizar esta tela com as cores e identidade visual do seu tema
-// TODO: importar useState e useEffect — adicione a linha abaixo no topo:
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+
 import {
   FlatList,
   SafeAreaView,
@@ -11,93 +11,89 @@ import {
   View,
 } from 'react-native';
 
-// TODO: substituir pelos jogos que voce escolheu
 const jogos = [
   {
     id: '1',
-    titulo: 'The Legend of Zelda: Breath of the Wild',
-    genero: 'Aventura / Mundo Aberto',
-    plataforma: 'Nintendo Switch',
+    titulo: 'Violence District',
+    genero: 'Terror / Sobrevivência',
+    plataforma: 'PC / Mobile',
     nota: '10/10',
     sinopse:
-      'Explore um vasto mundo aberto em Hyrule. Resolva puzzles, enfrente inimigos e descubra segredos em uma das aventuras mais aclamadas da historia dos games.',
+      'Inspirado em DBD, Violence District é um jogo de terror e sobrevivência no Roblox. Ele contém 8 killers, variedade de perks e mapas. Arrume geradores e escape do lugar ou mate os sobreviventes.',
   },
   {
     id: '2',
-    titulo: 'Red Dead Redemption 2',
-    genero: 'Acao / Mundo Aberto',
-    plataforma: 'PS4 / Xbox / PC',
+    titulo: 'Bite by Night',
+    genero: 'Terror / Sobrevivência',
+    plataforma: 'PC / Mobile',
     nota: '10/10',
     sinopse:
-      'Uma epica historia sobre a vida fora da lei no coracao da America. Viva a aventura de Arthur Morgan no velho oeste em um mundo detalhado e imersivo.',
+      'Inspirado em DBD, Bite by Night é um jogo de terror e sobrevivência no Roblox. Seu diferencial, entretanto, é o fato de ser inspirado também em Five Nights at Freddy. Ele contém 4 killers, classes e mapas. Arrume geradores e espere até às 6:00AM para escapar do lugar ou mate os sobreviventes.',
   },
   {
     id: '3',
-    titulo: 'God of War',
-    genero: 'Acao / Aventura',
-    plataforma: 'PS4 / PC',
+    titulo: 'Arsenal',
+    genero: 'Ação / FPS',
+    plataforma: 'PC / Mobile',
     nota: '10/10',
     sinopse:
-      'Kratos e seu filho Atreus embarcam em uma jornada pelos Nove Reinos da mitologia nordica. Um dos jogos mais premiados de sua geracao.',
+      'Um jogo de tiro em equipes, duplas ou solo. Cada round é um mapa diferente e com um modo diferente. O jogo no Roblox conta com grande variedade de skin de personagens.',
   },
   {
     id: '4',
-    titulo: 'Hollow Knight',
-    genero: 'Metroidvania / Plataforma',
-    plataforma: 'PC / Switch / PS4',
+    titulo: 'OSU!',
+    genero: 'Ritmo',
+    plataforma: 'PC',
     nota: '9/10',
     sinopse:
-      'Explore um vasto reino subterraneo habitado por insetos. Um desafio preciso e belo, com um mundo imenso para descobrir.',
+      'Um jogo de ritmo com diferentes mecânicas, sendo a mais famosa a osu!mania. Clique nos circulos no momento da batida, seguindo o ritmo e obtendo uma pontuação de SS até D. Contém modificadores que podem aumentar ou diminuir a pontuação, mudando o jogo. Há vários beatmaps em seu site oficial, sendo esses mapas feito por fãs que escolhem várias músicas.',
   },
   {
     id: '5',
-    titulo: 'Celeste',
-    genero: 'Plataforma / Indie',
-    plataforma: 'PC / Switch / PS4',
+    titulo: 'Fisch',
+    genero: 'RPG',
+    plataforma: 'PC / Mobile',
     nota: '9/10',
     sinopse:
-      'Ajude Madeline a sobreviver sua viagem interior pela montanha Celeste. Um platformer desafiador com uma historia tocante sobre superacao.',
+      'Explore o mundo e pesque peixes, relíquias, lixo e até criaturas místicas. O RPG encontrado no Roblox conta com mais de mil peixes variados, várias varas de pesca, eventos, missões e encantamentos.',
   },
   {
     id: '6',
-    titulo: 'Stardew Valley',
-    genero: 'Simulacao / RPG',
-    plataforma: 'PC / Switch / Mobile',
+    titulo: 'Minecraft',
+    genero: 'Ação / Sobrevivência',
+    plataforma: 'PC / Mobile',
     nota: '9/10',
     sinopse:
-      'Herde a fazenda do seu avo e comece uma nova vida. Plante, colete, construa relacionamentos e explore cavernas neste mundo relaxante.',
+      'Explore o mundo vasto e se aventure em cavernas. Construa casas e encontre civilizações. Minecraft é um jogo aberto para a criatividade.',
   },
 ];
 
+/////////////////////////////////////////////////////////
 // TODO: adicionar { navigation } como parametro quando a navegacao estiver configurada
-export default function HomeScreen() {
-  // TODO: estado para o texto digitado na busca
-  // const [busca, setBusca] = useState('');
+/////////////////////////////////////////////////////////
 
-  // TODO: estado com os jogos exibidos na lista — inicia com todos
-  // const [jogosFiltrados, setJogosFiltrados] = useState(jogos);
+export default function HomeScreen({navigation}) {
+  const [busca, setBusca] = useState('')
 
-  // TODO: filtrar os jogos sempre que o valor de 'busca' mudar
-  // useEffect(() => {
-  //   const resultado = jogos.filter((jogo) =>
-  //     jogo.titulo.toLowerCase().includes(busca.toLowerCase())
-  //   );
-  //   setJogosFiltrados(resultado);
-  // }, [busca]);
+  const [jogosFiltrados, setJogosFiltrados] = useState(jogos)
+
+   useEffect(() => {
+     const resultado = jogos.filter((jogo) =>
+       jogo.titulo.toLowerCase().includes(busca.toLowerCase())
+     );
+     setJogosFiltrados(resultado);
+   }, [busca]);
 
   function renderItem({ item }) {
     return (
       <TouchableOpacity
         style={styles.card}
-        // TODO: implementar onPress com navigation.navigate passando os dados do jogo
-        // onPress={() => navigation.navigate('Detalhe', { ...item })}
+        onPress={() => navigation.navigate('Detalhe', { ...item })}
       >
         <View style={styles.cardIcone}>
-          {/* TODO: substituir pela inicial do titulo ou outro elemento do seu tema */}
           <Text style={styles.cardIconeTexto}>{item.titulo[0]}</Text>
         </View>
         <View style={styles.cardInfo}>
-          {/* TODO: substituir pelos campos do seu tema */}
           <Text style={styles.cardTitulo}>{item.titulo}</Text>
           <Text style={styles.cardSubtitulo}>{item.genero}</Text>
         </View>
@@ -108,7 +104,9 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
+        /////////////////////////////////////////////////////////
         {/* TODO: colocar o nome do seu app e subtitulo */}
+        /////////////////////////////////////////////////////////
         <Text style={styles.headerTitulo}>Catalogo de Games</Text>
         <Text style={styles.headerSubtitulo}>
           Escolha um jogo para ver os detalhes
@@ -121,14 +119,14 @@ export default function HomeScreen() {
           style={styles.buscaInput}
           placeholder="Buscar jogo..."
           placeholderTextColor="#999"
-          // value={busca}
-          // onChangeText={setBusca}
+          value={busca}
+          onChangeText={setBusca}
         />
       </View>
 
       {/* TODO: trocar data={jogos} por data={jogosFiltrados} apos implementar o estado */}
       <FlatList
-        data={jogos}
+        data={jogosFiltrados}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         contentContainerStyle={styles.lista}
@@ -138,7 +136,9 @@ export default function HomeScreen() {
   );
 }
 
+/////////////////////////////////////////////////////////
 // TODO: estilizar com as cores e identidade visual do seu tema
+/////////////////////////////////////////////////////////
 const styles = StyleSheet.create({
   buscaContainer: {
     backgroundColor: '#FFFFFF',

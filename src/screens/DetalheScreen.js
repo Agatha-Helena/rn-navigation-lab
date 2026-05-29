@@ -1,6 +1,6 @@
 // TODO: estilizar esta tela com as cores e identidade visual do seu tema
-// TODO: importar useState — adicione a linha abaixo no topo:
-// import { useState } from 'react';
+import { useState } from "react";
+
 import {
   SafeAreaView,
   ScrollView,
@@ -10,30 +10,26 @@ import {
   View,
 } from "react-native";
 
-// Dados de fallback — usados enquanto a navegacao nao estiver configurada
 const jogoMock = {
-  titulo: "The Legend of Zelda: Breath of the Wild",
-  genero: "Aventura / Mundo Aberto",
-  plataforma: "Nintendo Switch",
+  titulo: "Bite by Night",
+  genero: "Terror / Sobrevivência",
+  plataforma: "PC / Mobile",
   nota: "10/10",
   sinopse:
-    "Explore um vasto mundo aberto em Hyrule. Resolva puzzles, enfrente inimigos e descubra segredos em uma das aventuras mais aclamadas da historia dos games.",
+    "Inspirado em DBD, Bite by Night é um jogo de terror e sobrevivência no Roblox. Seu diferencial, entretanto, é o fato de ser inspirado também em Five Nights at Freddy. Ele contém 4 killers, classes e mapas. Arrume geradores e espere até às 6:00AM para escapar do lugar ou mate os sobreviventes.",
 };
 
 // TODO: adicionar { route, navigation } como parametros quando a navegacao estiver configurada
-// Os dados chegam via route.params quando o usuario toca em um jogo na HomeScreen
-export default function DetalheScreen() {
+export default function DetalheScreen({route, navigation}) {
   // Defina os parâmetros de rota, pegando todos os campos presentes no objeto JOGOS definido na HomeScreen
-  // const { titulo... } = route?.params ?? jogoMock;
+  const { titulo, genero, plataforma, nota, sinopse} = route?.params ?? jogoMock;
 
-  // TODO: estado booleano para controlar se o jogo foi salvo na lista
-  // const [isSalvo, setIsSalvo] = useState(false);
+  const [isSalvo, setIsSalvo] = useState(false)
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.hero}>
-          {/* TODO: substituir pela inicial do titulo ou outro elemento do seu tema */}
           <View style={styles.heroIcone}>
             <Text style={styles.heroIconeTexto}>{titulo[0]}</Text>
           </View>
@@ -56,11 +52,10 @@ export default function DetalheScreen() {
           <Text style={styles.secaoTitulo}>Sinopse</Text>
           <Text style={styles.detalheTexto}>{sinopse}</Text>
         </View>
-
-        {/* TODO: quando implementar o estado isSalvo, use:
+        
             onPress={() => setIsSalvo(prev => !prev)}
             style={[styles.botao, isSalvo && styles.botaoAtivo]}
-            texto: isSalvo ? 'Remover da Lista' : 'Adicionar a Lista' */}
+            texto: isSalvo ? 'Remover da Lista' : 'Adicionar a Lista'
         <TouchableOpacity style={styles.botao}>
           <Text style={styles.botaoTexto}>Adicionar a Lista</Text>
         </TouchableOpacity>
