@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: "#555555",
+    backgroundColor: "#460385",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 14,
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   },
   // TODO: estilizar o estado ativo do botao com a cor do seu tema
   botaoAtivo: {
-    backgroundColor: "#555555",
+    backgroundColor: "#460385",
   },
   botaoTexto: {
     fontSize: 15,
