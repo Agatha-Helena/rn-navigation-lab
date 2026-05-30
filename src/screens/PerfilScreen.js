@@ -17,21 +17,21 @@ export default function PerfilScreen() {
       <View style={styles.cartao}>
         {/* TODO: personalizar o avatar com a inicial do nome do usuario */}
         <View style={styles.avatar}>
-          <Text style={styles.avatarTexto}>U</Text>
+          <Text style={styles.avatarTexto}>{nome[0]}</Text>
         </View>
         {/* TODO: personalizar nome e e-mail */}
-        <Text style={styles.nome}>Nome do Usuario</Text>
-        <Text style={styles.email}>usuario@email.com</Text>
+        <Text style={styles.nome}>Agatha-Helena</Text>
+        <Text style={styles.email}>aghata.m@aluno.senai.br</Text>
 
         <View style={styles.separador} />
 
         {/* TODO: substituir pelas estatisticas que fazem sentido no seu tema */}
         <View style={styles.infoLinha}>
-          <Text style={styles.infoLabel}>Itens salvos</Text>
+          <Text style={styles.infoLabel}>Jogos salvos</Text>
           <Text style={styles.infoValor}>0</Text>
         </View>
         <View style={styles.infoLinha}>
-          <Text style={styles.infoLabel}>Itens favoritos</Text>
+          <Text style={styles.infoLabel}>Jogos favoritos</Text>
           <Text style={styles.infoValor}>0</Text>
         </View>
         <View style={styles.infoLinha}>
