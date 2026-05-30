@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   botaoAtivo: {
-    backgroundColor: '#555555',
+    backgroundColor: '#460385',
   },
   texto: {
     fontSize: 15,
