@@ -68,9 +68,7 @@ const jogos = [
   },
 ];
 
-/////////////////////////////////////////////////////////
 // TODO: adicionar { navigation } como parametro quando a navegacao estiver configurada
-/////////////////////////////////////////////////////////
 
 export default function HomeScreen({navigation}) {
   const [busca, setBusca] = useState('')
@@ -104,12 +102,10 @@ export default function HomeScreen({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        /////////////////////////////////////////////////////////
         {/* TODO: colocar o nome do seu app e subtitulo */}
-        /////////////////////////////////////////////////////////
-        <Text style={styles.headerTitulo}>Catalogo de Games</Text>
+        <Text style={styles.headerTitulo}>Games26</Text>
         <Text style={styles.headerSubtitulo}>
-          Escolha um jogo para ver os detalhes
+          Veja os jogos mais jogados de 2026
         </Text>
       </View>
 
@@ -136,9 +132,8 @@ export default function HomeScreen({navigation}) {
   );
 }
 
-/////////////////////////////////////////////////////////
 // TODO: estilizar com as cores e identidade visual do seu tema
-/////////////////////////////////////////////////////////
+
 const styles = StyleSheet.create({
   buscaContainer: {
     backgroundColor: '#FFFFFF',
